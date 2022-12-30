@@ -9,10 +9,19 @@
     <img src="/img/undraw_medicine_b-1-ol.svg" class="abt_img" alt="About" />
 </div>
 
-<form>
+
+@if(session('success'))
+<p class="alert-success">{{ session('success') }}</p>
+@endif
+<form method="POST" action="{{ route('login.action') }}">
     @csrf
     <h3><i class="fa-solid fa-hospital"></i>Clinic</h3>
     <h4>Sign in</h4>
+    @if($errors->any())
+    @foreach($errors->all() as $err)
+    <p class="alert-error">{{ $err }}</p>
+    @endforeach
+    @endif
     <div class="input-field">
         <i class="fa fa-user"></i>
         <input type="text" name="username" placeholder="Username" value="{{ old('username') }}" />

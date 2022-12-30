@@ -4,18 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
 
 class UserController extends Controller
 {
     public function register()
     {
-        $data['title'] = 'Register :: Clinic Management System';
+        $data['title'] = 'Register';
         return view('user/register', $data);
     }
 
     public function login()
     {
-        $data['title'] = 'Login :: Clinic Management System';
+        $data['title'] = 'Login';
         return view('user/login', $data);
     }
 
@@ -32,9 +35,30 @@ class UserController extends Controller
             'fullname' => $request->fullname,
             'username' => $request->username,
             'email' => $request->email,
-            'password' => $request->password
+            'password' => Hash::make($request->password)
         ]);
         $user->save();
         return redirect()->route('login')->with('success', 'Registration success. Please Login!');
+    }
+
+    public function login_action(Request $request)
+    {
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+        if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
+            $request->session()->regenerate();
+            return redirect()->intended('/');
+        }
+        return back()->withErrors('password', 'Wrong username or password!');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 }

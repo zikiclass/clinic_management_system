@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('index');
-});
+    return view('index', ['title' => 'Home']);
+})->name('index');
 
 
 
@@ -27,3 +27,7 @@ Route::get('login', [UserController::class, 'login'])->name('login');
 Route::get('register', [UserController::class, 'register'])->name('register');
 
 Route::post('register', [UserController::class, 'register_action'])->name('register.action');
+
+Route::post('login', [UserController::class, 'login_action'])->name('login.action');
+
+Route::get('logout', [UserController::class, 'logout'])->name('logout');
