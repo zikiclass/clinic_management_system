@@ -21,9 +21,7 @@
             <h1>Clinic <br />Management <br />System</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur molestiae accusantium at deleniti
                 quaerat, inventore placeat ea, magni consequuntur aperiam assumenda illum id exercitationem excepturi
-                ratione, labore recusandae! Expedita similique reprehenderit magni eum cupiditate enim minus placeat
-                quae tenetur tempore repellendus, quidem, alias deserunt consequuntur, officiis soluta laudantium neque
-                amet.</p>
+                ratione, labore recusandae! Expedita similique reprehenderit.</p>
             <h3> <b>
                     @if(Auth::user())
                     {{ Auth::user()->fullname }}
@@ -32,10 +30,12 @@
             <!-- @auth
             <a href="{{ route('logout') }}">Log Out</a>
             @endauth -->
-            @guest
-            <a href="{{ route('register') }}" class="btn-register">Register</a>
-            <a href="{{  route('login') }}" class="btn-login">Login</a>
-            @endguest
+            <div class="cta">
+                @guest
+                <a href="{{ route('register') }}" class="btn-register">Register</a>
+                <a href="{{  route('login') }}" class="btn-login">Login</a>
+                @endguest
+            </div>
         </div>
         <div class="img1">
             <img src="/img/undraw_medicine_b-1-ol.svg" alt="img" />
