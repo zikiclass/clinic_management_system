@@ -12,14 +12,15 @@ body{
     
 }
 
-form>h3{
+form>h3>a{
     font-size: 2.2rem;
-    color:#0000FF;
+    color:#0000FF!important;
     margin-bottom: 10px;
 }
-form>h3>i{
-    color: red;
+form>h3>a>i{
+    color: red!important;
 }
+
 form{
     z-index: 1;
     display: flex;
@@ -141,4 +142,113 @@ h4{
     color: rgb(92, 22, 22);
     position: absolute;
     left: 70%;
+}
+
+.index-wrapper{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    background: #e7e7e7;
+
+}
+
+.header-container{
+    height: 4rem;
+    background-image: linear-gradient(-45deg, #0000FF 0%, red 100%);
+    width: 100%;
+margin-bottom: 12px;
+    padding: 20px 10rem 20px;
+
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+}
+.header-container h3 a{
+    color: #fff;
+    font-size: 1.5rem;
+}
+.header-container ul{
+    color: #fff;
+    float: right;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.header-container ul li a{
+    color: #fff;
+    font-weight: 200;
+    transition: all 0.5s ease-in-out;
+}
+.header-container ul li a:hover{
+    font-weight: 600;
+    color:#6262FF;
+}
+.active{
+    font-weight: 600!important;
+}
+.header-container h5{
+    color: #fff;
+    font-weight: 200;
+}
+.index-container{
+    padding: 40px 10rem 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.img1 img{
+    width: 100%;
+    height: auto;
+}
+.description h1{
+    font-size: 5rem;
+    line-height: 0.95;
+    margin: 40px 0;
+    /* color:  #0000FF; */
+    background: -webkit-linear-gradient(#0000FF, #000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.description p{
+    background-color: #c1c1fc;
+    padding: 25px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+}
+.description a{
+    
+    margin: 5px
+}
+.btn-register{
+    background: #0000FF;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    color: #fff;
+    text-transform: capitalize;
+    transition: all 0.5s ease-in-out;
+    border: 1px solid #6262FF;
+}
+.btn-register:hover{
+    border-color: #0000FF;
+    background-color: transparent;
+    color: #0000FF;
+}
+.btn-login{
+    background:#6262FF;
+    border: 1px solid #0000FF;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    color: #fff;
+    text-transform: capitalize;
+    transition: all 0.5s ease-in-out;
+
+}
+.btn-login:hover{
+    border-color: #6262FF;
+    background-color: transparent;
+    color: #0000FF;
 }

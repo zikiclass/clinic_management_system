@@ -10,7 +10,7 @@
 
 <form method="POST" action="{{ route('register.action') }}">
     @csrf
-    <h3><i class="fa-solid fa-hospital"></i>Clinic</h3>
+    <h3><a href="{{ route('index') }}"><i class="fa-solid fa-hospital"></i>Clinic</a></h3>
     <h4>Sign Up</h4>
     @if($errors->any())
     @foreach($errors->all() as $err)
