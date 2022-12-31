@@ -49,7 +49,7 @@ class UserController extends Controller
         ]);
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->route('dashboard')->with('success', 'Login successful!');
         }
         return back()->withErrors('password', 'Wrong username or password!');
     }
@@ -59,6 +59,11 @@ class UserController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/');
+        return redirect('login');
+    }
+    public function dashboard()
+    {
+        $data['title'] = 'Dashboard';
+        return view('user/dashboard', $data);
     }
 }
