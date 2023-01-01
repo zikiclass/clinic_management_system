@@ -1,9 +1,7 @@
 @extends('app')
 @section('content')
 @auth
-@if(!Auth::user())
-return redirect()->intended('login')
-@endif
+
 
 
 
@@ -80,7 +78,10 @@ return redirect()->intended('login')
             </div>
 
             <div class="welcome">
-                <p>Welcome <b>{{ Auth::user()->fullname }}</b>!</p>
+                <p>Welcome <b>@if(Auth::user())
+                        {{ Auth::user()->fullname }}
+                        @endif
+                    </b>!</p>
             </div>
 
             <div class="card-container">

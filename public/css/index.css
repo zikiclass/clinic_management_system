@@ -550,4 +550,9 @@ form::before{
     text-transform: uppercase;
     text-align: center;
 }
+
+.card-icon>tr{
+    display: grid;
+    justify-content: space-between;
+}
 /* ========= END OF DASHBOARD STYLE ================== */
