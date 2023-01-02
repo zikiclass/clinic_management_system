@@ -66,4 +66,25 @@ class UserController extends Controller
         $data['title'] = 'Dashboard';
         return view('user/dashboard', $data);
     }
+
+    public function bookAppointment()
+    {
+        $data['title'] = "Book Appointment";
+        return view('user/bookAppointment', $data);
+    }
+    public function viewAppointment()
+    {
+        $data['title'] = "View Appointment";
+        return view('user/viewAppointment', $data);
+    }
+    public function medicalHistory()
+    {
+        $data['title'] = "Medical History";
+        return view('user/medicalHistory', $data);
+    }
+    public function profile()
+    {
+        $data['title'] = "Profile";
+        return view('user/profile', $data);
+    }
 }

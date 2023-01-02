@@ -32,4 +32,12 @@ Route::post('login', [UserController::class, 'login_action'])->name('login.actio
 
 Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
-Route::get('dashboard', [UserController::class, 'dashboard'])->name('dashboard');
+Route::get('dashboard', [UserController::class, 'dashboard'])->name('dashboard')->middleware('prevent-back-history')->middleware('auth');
+
+Route::get('bookAppointment', [UserController::class, 'bookAppointment'])->name('bookAppointment')->middleware('prevent-back-history')->middleware('auth');
+
+Route::get('viewAppointment', [UserController::class, 'viewAppointment'])->name('viewAppointment')->middleware('prevent-back-history')->middleware('auth');
+
+Route::get('medicalHistory', [UserController::class, 'medicalHistory'])->name('medicalHistory')->middleware('prevent-back-history')->middleware('auth');
+
+Route::get('profile', [UserController::class, 'profile'])->name('profile')->middleware('prevent-back-history')->middleware('auth');
