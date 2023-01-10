@@ -84,11 +84,53 @@
                         <h2>View Appointment</h2>
 
                         <div class="table">
+                            @if(session('success'))
+                            <p class="alert-success">{{ session('success') }}</p>
+                            @endif
+                            <table cellspacing="0" cellpadding="0">
+                                <thead>
+                                    <tr>
+                                        <th>S/N</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Doctor</th>
+                                        
+                                    </tr>
+                                </thead>
+<tbody>
+@php $count = 1;
+@endphp
+                                        @foreach($AppointmentRecord as $row)
+@unless($row['Status'] == '' or $row['Status'] == 'Treated')
+                                        <tr>
+                                            <td>{{ $count }}</td>
 
+                                            <td>{{ $row['appointment_date']}}</td>
+                                        
+                                            <td>{{ $row['appointment_time']}} </td>
+
+                                            <td></td>
+
+                                            
+                                           @php
+                                            $count++;
+                                           @endphp
+                                        </tr>
+@endunless
+                                        @endforeach
+
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-
+                <div class="card">
+                    <div class="card-icon">
+                        <h1>&nbsp;</h1>
+                        <img src="/img/undraw_medicine_b-1-ol.svg" class="abt_img" alt="About" />
+                        
+                    </div>
+                </div>
 
             </div>
             <div class="dashboard-footer">

@@ -24,16 +24,16 @@ body{
     
 }
 
-form>h3>a{
+.form>h3>a{
     font-size: 2.2rem;
     color:var(--deepBlue)!important;
     margin-bottom: 10px;
 }
-form>h3>a>i{
+.form>h3>a>i{
     color: var(--red)!important;
 }
 
-form{
+.form{
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -45,7 +45,7 @@ form{
     height: 100%;
     
 }
-form::before{
+.form::before{
 content: '';
 position:absolute;
 width: 1000px;
@@ -235,16 +235,34 @@ margin-bottom: 12px;
     
     margin: 5px
 }
+.btn-reset{
+    background: var(--red);
+    padding: 0.8rem;
+    border-radius: 0.4rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    color: var(--white);
+    text-transform: capitalize;
+    transition: all 0.5s ease-in-out;
+    border: none;
+    cursor: pointer;
+}
+.btn-reset:hover{
+    border: 1px solid var(--red);
+    background-color: transparent;
+    color: var(--red);
+}
 .btn-register{
     background: var(--deepBlue);
     padding: 0.8rem;
-    border-radius: 0.5rem;
+    border-radius: 0.4rem;
     padding-left: 1.2rem;
     padding-right: 1.2rem;
     color: var(--white);
     text-transform: capitalize;
     transition: all 0.5s ease-in-out;
     border: 1px solid var(--lightBlue);
+    cursor: pointer;
 }
 .btn-register:hover{
     border-color: var(--deepBlue);
@@ -284,7 +302,7 @@ margin-bottom: 12px;
     align-items: baseline;
     padding: 2rem;
 }
-form::before{
+.form::before{
     content: '';
     background-color: transparent;
     background-image: none;
@@ -314,7 +332,7 @@ form::before{
     }
    
     
-    form{
+    .form{
         padding: 2rem;
     }
     .index-container{
@@ -549,6 +567,13 @@ form::before{
 .card-container{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: center;
+    align-items: baseline;
+}
+.card-container.view-card{
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 3rem;
     align-items: center;
     align-items: baseline;
@@ -562,20 +587,15 @@ form::before{
     border-radius: 10px;
     box-shadow: 0px 5px 10px 0px var(--lightAsh);
     font-size: 0.8rem;
+    overflow: hidden;
 }
-.card-icon>h2::after{
-    content: '';
-    width: 70px;
-    height: 3px;
-    background-color: var(--deepBlue);
-    
-}
+
 .card-icon>h2{
     color: var(--lightBlue);
     margin: 30px 0;
-    font-weight: 400;
+    font-weight: 600;
     text-transform: uppercase;
-    text-align: center;
+    text-align: left;
     font-size: 1rem;
 }
 
@@ -604,7 +624,7 @@ table th{
 }
 table td,
 table th{
-    padding: 12px 30px;
+    padding: 10px 23px;
     font-weight: 200;
 }
 .status{
@@ -716,4 +736,66 @@ table th{
 }
     
 }
+
+.frm-user{
+    width: 100%;
+    
+}
+.frm-user .form-group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    
+}
+.frm-user label{
+    margin-bottom: 4px;
+    color: var(--lightBlue);
+    text-transform: capitalize;
+    font-size: 0.7rem;
+}
+
+.frm-user input[type=date], input[type=text], select{
+    border: none;
+    border-bottom: 1px solid var(--lightBlue);
+    width: 50%;
+}
+
+.frm-user textarea{
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--lightBlue);
+    resize: none;
+}
+
+.alert-success{
+    padding: 15px;
+    border-radius: 4px;
+    background-color: var(--lightAsh2);
+    border: 1px solid var(--lightBlue);
+}
+.profile-tbl{
+    align-items: center;
+    text-align: center;
+}
+.user-profile{
+    font-size: 6rem;
+    color: var(--lightBlue);
+    margin-bottom: 5px;
+}
+.profile-tbl h4{
+    font-weight: 300;
+    border-bottom: 1px solid var(--lightAsh);
+    margin-bottom: 1.5rem;
+}
+.profile-tbl small{
+    font-weight: 400;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    color: var(--lightBlue);
+   
+}
+.profile-tbl p{
+    margin-bottom: 1rem;
+}
+
 /* ========= END OF DASHBOARD STYLE ================== */

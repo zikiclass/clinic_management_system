@@ -8,7 +8,7 @@
     <img src="/img/undraw_medicine_b-1-ol.svg" class="abt_img" alt="About" />
 </div>
 
-<form method="POST" action="{{ route('register.action') }}">
+<form method="POST" action="{{ route('register.action') }}" class="form">
     @csrf
     <h3><a href="{{ route('index') }}"><i class="fa-solid fa-hospital"></i>Clinic</a></h3>
     <h4>Sign Up</h4>
@@ -19,23 +19,23 @@
     @endif
     <div class="input-field">
         <i class="fa fa-male"></i>
-        <input type="text" name="fullname" placeholder="Full Name" value="{{ old('fullname') }}" />
+        <input type="text" required name="fullname" placeholder="Full Name" value="{{ old('fullname') }}" />
     </div>
     <div class="input-field">
         <i class="fa fa-envelope"></i>
-        <input type="email" name="email" placeholder="Email Address" value="{{ old('email') }}" />
+        <input type="email" required name="email" placeholder="Email Address" value="{{ old('email') }}" />
     </div>
     <div class="input-field">
         <i class="fa fa-user"></i>
-        <input type="text" name="username" placeholder="Username" value="{{ old('username') }}" />
+        <input type="text" required name="username" placeholder="Username" value="{{ old('username') }}" />
     </div>
     <div class="input-field">
         <i class="fa fa-key"></i>
-        <input type="password" name="password" placeholder="Password" />
+        <input type="password" required name="password" placeholder="Password" />
     </div>
     <div class="input-field">
         <i class="fa fa-key"></i>
-        <input type="password" name="password_confirmation" placeholder="Confirm Password" />
+        <input type="password" required name="password_confirmation" placeholder="Confirm Password" />
     </div>
     <input type="submit" value="Register" class="btn transparent" />
     <p>Or sign up with your social handles.</p>

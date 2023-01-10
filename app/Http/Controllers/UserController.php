@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\bookAppointment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 
 class UserController extends Controller
@@ -64,7 +66,8 @@ class UserController extends Controller
     public function dashboard()
     {
         $data['title'] = 'Dashboard';
-        return view('user/dashboard', $data);
+        $AppointmentRecord = bookAppointment::all()->toArray();
+        return view('user/dashboard', compact('AppointmentRecord'), $data);
     }
 
     public function bookAppointment()
@@ -75,7 +78,14 @@ class UserController extends Controller
     public function viewAppointment()
     {
         $data['title'] = "View Appointment";
-        return view('user/viewAppointment', $data);
+
+
+        $AppointmentRecord = bookAppointment::all()->toArray();
+        return view('user/viewAppointment', compact('AppointmentRecord'), $data);
+
+
+
+        //return view('user/viewAppointment', $data);
     }
     public function medicalHistory()
     {
@@ -85,6 +95,28 @@ class UserController extends Controller
     public function profile()
     {
         $data['title'] = "Profile";
+
+
         return view('user/profile', $data);
+    }
+    public function bookAppointment_action(Request $request)
+    {
+        $request->validate([
+
+            'date' => 'required',
+            'time' => 'required',
+            'reason' => 'required',
+        ]);
+        $bookAppoint = new bookAppointment([
+            // 'doctor' => $request->doctor,
+            'user_id' => '21',
+            'doc_id' => '123',
+            'appointment_date' => $request->date,
+            'appointment_time' => $request->time,
+            'appointment_reason' => $request->reason,
+            'Status' => 'Pending',
+        ]);
+        $bookAppoint->save();
+        return redirect()->route('viewAppointment')->with('success', 'Appointment booked successfully');
     }
 }

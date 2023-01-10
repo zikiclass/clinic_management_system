@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,15 @@ Route::get('bookAppointment', [UserController::class, 'bookAppointment'])->name(
 
 Route::get('viewAppointment', [UserController::class, 'viewAppointment'])->name('viewAppointment')->middleware('prevent-back-history')->middleware('auth');
 
+
 Route::get('medicalHistory', [UserController::class, 'medicalHistory'])->name('medicalHistory')->middleware('prevent-back-history')->middleware('auth');
 
 Route::get('profile', [UserController::class, 'profile'])->name('profile')->middleware('prevent-back-history')->middleware('auth');
+
+Route::post('bookAppointment', [UserController::class, 'bookAppointment_action'])->name('bookappoint.action')->middleware('prevent-back-history')->middleware('auth');
+
+
+// Route::get('viewAppointment', function () {
+//     $appointLists = DB::table('bookappoint_tbl')->select('appointment_date', 'appointment_time', 'doc_id')->get();
+//     return view('viewAppointment', ['appointLists' => $appointLists]);
+// });

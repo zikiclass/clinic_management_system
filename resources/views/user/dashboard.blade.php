@@ -90,52 +90,51 @@
                         <h2>Your Appointment</h2>
 
                         <div class="table">
+                            @if(session('success'))
+                            <p class="alert-success">{{ session('success') }}</p>
+                            @endif
                             <table cellspacing="0" cellpadding="0">
                                 <thead>
                                     <tr>
                                         <th>S/N</th>
                                         <th>Date</th>
-                                        <th>Doctor/Nurse</th>
+                                        <th>Time</th>
+                                        <th>Doctor</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1.</td>
-                                        <td>1/1/2023</td>
-                                        <td>Dr. James</td>
-                                        <td><span class="status pending">Pending</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2.</td>
-                                        <td>1/1/2023</td>
-                                        <td>Dr. James</td>
-                                        <td><span class="status success">Treated</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3.</td>
-                                        <td>1/1/2023</td>
-                                        <td>Dr. James</td>
-                                        <td><span class="status pending">Pending</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4.</td>
-                                        <td>1/1/2023</td>
-                                        <td>Dr. James</td>
-                                        <td><span class="status success">Treated</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>5.</td>
-                                        <td>1/1/2023</td>
-                                        <td>Dr. James</td>
-                                        <td><span class="status pending">Pending</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>6.</td>
-                                        <td>1/1/2023</td>
-                                        <td>Dr. James</td>
-                                        <td><span class="status success">Treated</span></td>
-                                    </tr>
+<tbody>
+@php $count = 1;
+@endphp
+                                        @foreach($AppointmentRecord as $row)
+
+                                        <tr>
+                                            <td>{{ $count }}</td>
+
+                                            <td>{{ $row['appointment_date']}}</td>
+                                        
+                                            <td>{{ $row['appointment_time']}} </td>
+
+                                            <td></td>
+
+                                            <td>
+                                                @if($row['Status'] == 'Pending')
+                                                <span class="status pending">{{ $row['Status'] }}</span>
+                                              
+                                                @elseif($row['Status'] == 'Treated')
+                                                <span class="status success">{{ $row['Status'] }}</span>
+                                                
+                                                @endif
+                                                
+                                            </td>
+
+                                           @php
+                                            $count++;
+                                           @endphp
+                                        </tr>
+
+                                        @endforeach
+
                                 </tbody>
                             </table>
                         </div>
@@ -185,14 +184,5 @@
     </div>
 </div>
 
-<script>
-function toggleMenu() {
-    let toggle = document.querySelector('.toggle');
-    toggle.classList.toggle('active');
-    let navigation = document.querySelector('.navigation');
-    navigation.classList.toggle('active');
-    let main = document.querySelector('.main');
-    main.classList.toggle('active');
-}
-</script>
+
 @endsection

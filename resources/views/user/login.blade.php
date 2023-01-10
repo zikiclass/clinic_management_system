@@ -13,7 +13,7 @@
 @if(session('success'))
 <p class="alert-success">{{ session('success') }}</p>
 @endif
-<form method="POST" action="{{ route('login.action') }}">
+<form method="POST" action="{{ route('login.action') }}" class="form">
     @csrf
     <h3><a href="{{ route('index') }}"><i class="fa-solid fa-hospital"></i>Clinic</a></h3>
     <h4>Sign in</h4>
@@ -24,11 +24,11 @@
     @endif
     <div class="input-field">
         <i class="fa fa-user"></i>
-        <input type="text" name="username" placeholder="Username" value="{{ old('username') }}" />
+        <input type="text" required name="username" placeholder="Username" value="{{ old('username') }}" />
     </div>
     <div class="input-field">
         <i class="fa fa-key"></i>
-        <input type="password" name="password" placeholder="Password" />
+        <input type="password" required name="password" placeholder="Password" />
     </div>
     <input type="submit" value="Login" class="btn transparent" />
     <p>Or sign in with your social handles.</p>

@@ -83,8 +83,33 @@
                     <div class="card-icon">
                         <h2>Book Appointment</h2>
 
-                        <div class="table">
-
+                        <div>
+                            <form action="{{ route('bookappoint.action') }}" method="POST" class="frm-user"
+                                id="frm-user">
+                                @csrf
+                                <div class="form-group">
+                                    <label>doctor:</label>
+                                    <select name="doctor">
+                                        <option value="John">John</option>
+                                        <option value="Martins">Martins</option>
+                                        <option value="Collins">Collins</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>date of appointment:</label>
+                                    <input type="date" name="date" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>time of appointment:</label>
+                                    <input type="text" name="time" placeholder="00:00 AM/PM" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Reason for visit:</label>
+                                    <textarea rows="7" placeholder="Reason for visit..." name="reason"></textarea>
+                                </div>
+                                <input type="submit" class="btn-register" value="Book Now" />
+                                <button onclick="resetForm();" class="btn-reset">Reset</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -100,15 +125,6 @@
     </div>
 </div>
 
-<script>
-function toggleMenu() {
-    let toggle = document.querySelector('.toggle');
-    toggle.classList.toggle('active');
-    let navigation = document.querySelector('.navigation');
-    navigation.classList.toggle('active');
-    let main = document.querySelector('.main');
-    main.classList.toggle('active');
-}
-</script>
+
 
 @endsection

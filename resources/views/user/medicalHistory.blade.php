@@ -82,7 +82,54 @@
                         <h2>Medical History</h2>
 
                         <div class="table">
-
+                            <table cellspacing="0" cellpadding="0">
+                                <thead>
+                                    <tr>
+                                        <th>S/N</th>
+                                        <th>Date</th>
+                                        <th>Doctor/Nurse</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1.</td>
+                                        <td>1/1/2023</td>
+                                        <td>Dr. James</td>
+                                        <td><span class="status pending">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2.</td>
+                                        <td>1/1/2023</td>
+                                        <td>Dr. James</td>
+                                        <td><span class="status success">Treated</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3.</td>
+                                        <td>1/1/2023</td>
+                                        <td>Dr. James</td>
+                                        <td><span class="status pending">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4.</td>
+                                        <td>1/1/2023</td>
+                                        <td>Dr. James</td>
+                                        <td><span class="status success">Treated</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5.</td>
+                                        <td>1/1/2023</td>
+                                        <td>Dr. James</td>
+                                        <td><span class="status pending">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>6.</td>
+                                        <td>1/1/2023</td>
+                                        <td>Dr. James</td>
+                                        <td><span class="status success">Treated</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -98,15 +145,6 @@
     </div>
 </div>
 
-<script>
-function toggleMenu() {
-    let toggle = document.querySelector('.toggle');
-    toggle.classList.toggle('active');
-    let navigation = document.querySelector('.navigation');
-    navigation.classList.toggle('active');
-    let main = document.querySelector('.main');
-    main.classList.toggle('active');
-}
-</script>
+
 
 @endsection

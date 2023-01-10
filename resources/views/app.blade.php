@@ -10,6 +10,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+    <script src="https://use.fontawesome.com/b69656bbf6.js"></script>
+
     <link rel="stylesheet" type="text/css" href="/css/index.css" />
     <title>@yield('title', $title) :: Clinic Management System</title>
 </head>
@@ -17,7 +19,7 @@
 <body>
 
     @yield('content')
-
+    <script src="js/script.js"></script>
 </body>
 
 </html>

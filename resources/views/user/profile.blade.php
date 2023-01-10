@@ -81,9 +81,21 @@
                     <div class="card-icon">
                         <h2>Profile</h2>
 
-                        <div class="table">
-
+                        <div class="profile-tbl">
+                            <i class="fas fa-user-circle-o user-profile" aria-hidden="true"></i>
+                            <h4><small>fullname: </small><br/>{{ Auth::user()->fullname }}</h4>
+                            
+                            <p><small>Email: </small><br/>{{ Auth::user()->email }}</p>
+                            <p><small>Username: </small><br/>{{ Auth::user()->username }}</p>
+                            <p><small>Reg. Date: </small><br/>{{ Auth::user()->created_at }}</p>
                         </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <h1>&nbsp;</h1>
+                        <img src="/img/undraw_medicine_b-1-ol.svg" class="abt_img" alt="About" />
+                        
                     </div>
                 </div>
 
@@ -98,14 +110,5 @@
     </div>
 </div>
 
-<script>
-function toggleMenu() {
-    let toggle = document.querySelector('.toggle');
-    toggle.classList.toggle('active');
-    let navigation = document.querySelector('.navigation');
-    navigation.classList.toggle('active');
-    let main = document.querySelector('.main');
-    main.classList.toggle('active');
-}
-</script>
+
 @endsection
